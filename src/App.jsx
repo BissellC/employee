@@ -8,7 +8,6 @@ import NotFound from './pages/NotFound'
 const App = () => {
   return (
     <Router>
-      <header></header>
       <Switch>
         <Route exact path="/" component={HomePage}></Route>
         <Route exact path="/employee/:id" component={EmployeePage}></Route>

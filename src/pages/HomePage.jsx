@@ -7,9 +7,9 @@ const HomePage = () => {
 
   const getEmployees = async () => {
     const resp = await axios.get(
-      'https://sdg-staff-directory-app.herokuapp.com/api/smelleez/employees'
+      'https://sdg-staff-directory-app.herokuapp.com/api/soulsuckers/employees'
     )
-    console.log(resp.data)
+    console.log(resp)
     setEmployees(resp.data)
   }
 
@@ -19,27 +19,30 @@ const HomePage = () => {
 
   return (
     <>
-      <header>Smelleez Fragrances</header>
+      <nav>
+        <header>Soul Suckers</header>
+        <Link to={'/add-employee/'}>Add employee</Link>
+      </nav>
       <main>
-        <h1>Employeez</h1>
+        <h1>Employees</h1>
         <section>
           <ul>
             {employees.map(employee => {
               return (
                 <li>
                   <img src={employee.profileImage} />
-                  <Link className="link" to={'/EmployeePage/' + employee.id}>
+                  <Link className="name" to={'/employee/' + employee.id}>
                     {employee.firstName} {employee.lastName}
                   </Link>
-                  <p>{employee.jobTitle}</p>
-                  <p>{employee.isFullTime}</p>
+                  <p>Job Title: {employee.jobTitle}</p>
+                  <p>{employee.isFullTime ? 'Full Time' : 'Part Time'}</p>
                 </li>
               )
             })}
           </ul>
         </section>
       </main>
-      <footer>Property of Smelleez inc.</footer>
+      <footer>Property of Soul Suckers inc.</footer>
     </>
   )
 }

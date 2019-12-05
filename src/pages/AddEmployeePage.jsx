@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const AddEmployeePage = () => {
   const [firstName, setFirstName] = useState('')
@@ -23,9 +24,9 @@ const AddEmployeePage = () => {
   const [fullTime, setFullTime] = useState(true)
   const [image, setImage] = useState('')
 
-  const addEmployee = async () => {
-    const resp = await axios.post(
-      'https://sdg-staff-directory-app.herokuapp.com/api/smelleez/employees/',
+  const addEmployee = () => {
+    const resp = axios.post(
+      'https://sdg-staff-directory-app.herokuapp.com/api/soulsuckers/employees/',
       {
         firstName: firstName,
         lastName: lastName,
@@ -49,11 +50,17 @@ const AddEmployeePage = () => {
         ptoHours: PTO,
       }
     )
+    console.log(resp)
   }
 
   return (
     <>
-      <form onSubmit={addEmployee}>
+      <nav>
+        <header>Soul Suckers</header>
+        <Link to={'/'}>Home</Link>
+      </nav>
+      <h1>Add an employee</h1>
+      <form>
         <label>
           First Name:
           <input
@@ -213,8 +220,11 @@ const AddEmployeePage = () => {
             onChange={e => setImage(e.target.value)}
           />
         </label>
-        <input type="submit" value="Submit" />
+        <button type="button" onClick={addEmployee}>
+          Submit
+        </button>
       </form>
+      <footer>Property of Soul Suckers inc.</footer>
     </>
   )
 }

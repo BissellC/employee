@@ -6,9 +6,16 @@ const EmployeeFull = props => {
 
   const employeeData = async () => {
     const resp = await axios.get(
-      `https://sdg-staff-directory-app.herokuapp.com/api/honeydukes/employees/${props.id}`
+      `https://sdg-staff-directory-app.herokuapp.com/api/soulsuckers/employees/${props.id}`
     )
     setEmployee(resp.data)
+  }
+
+  const deleteEmployee = async () => {
+    const deleteResp = await axios.delete(
+      `https://sdg-staff-directory-app.herokuapp.com/api/soulsuckers/employees/${props.id}`
+    )
+    console.log(deleteResp)
   }
 
   useEffect(() => {
@@ -16,25 +23,35 @@ const EmployeeFull = props => {
   }, [])
   return (
     <>
-      <main>
-        <img src={employee.profileImage} />
+      <main className="employee-full-page">
+        <img className="employee-image" src={employee.profileImage} />
         <p>
+          Name:&nbsp;
           {employee.firstName} {employee.lastName}
         </p>
-        <p>{employee.birthday}</p>
-        <p>{employee.hiredDate}</p>
-        <p>{employee.jobTitle}</p>
-        <p>{employee.jobDescription}</p>
+        <p>Birthday: {employee.birthday}</p>
+        <p>Hired Date: {employee.hiredDate}</p>
+        <p>Job Title: {employee.jobTitle}</p>
+        <p>Job Description: {employee.jobDescription}</p>
         <p>
-          {employee.address} {employee.city} {employee.zip}
+          Address:&nbsp;
+          {employee.address}, {employee.city} {employee.zip}
         </p>
-        <p>{employee.phoneNumber}</p>
-        <p>{employee.address}</p>
+        <p>Phone: {employee.phoneNumber}</p>
+        <p>Email: {employee.email}</p>
         <p>
-          {employee.emergencyContactPerson} {employee.emergencyContactPhone}{' '}
+          Emergency Contact Name:&nbsp;
+          {employee.emergencyContactPerson}
+        </p>
+        <p>Emergency Contact Phone: {employee.emergencyContactPhone}</p>
+        <p>
+          Emergency Contact Address:&nbsp;
           {employee.emergencyContactAddress}
         </p>
-        <p>{employee.ptoHours}</p>
+        <p>PTO: {employee.ptoHours} Hours</p>
+        <button className="delete" onClick={deleteEmployee}>
+          Remove Employee
+        </button>
       </main>
     </>
   )
