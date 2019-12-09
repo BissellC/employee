@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const EmployeeFull = props => {
   const [employee, setEmployee] = useState([])
@@ -52,6 +53,9 @@ const EmployeeFull = props => {
         <button className="delete" onClick={deleteEmployee}>
           Remove Employee
         </button>
+        <Link className="update" to={'/update-employee/' + employee.id}>
+          Update Employee
+        </Link>
       </main>
     </>
   )

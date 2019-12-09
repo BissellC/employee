@@ -131,4 +131,31 @@ form button {
   padding-bottom: 0.5rem;
   background-color: hsla(360, 100%, 50%, 0.5);
   border: 1px solid hsla(360, 100%, 50%, 1);
+  font-family: 'Rajdhani', sans-serif;
+  margin-right: 1rem;
+}
+
+.update {
+  background-color: hsla(140, 89%, 40%, 0.4);
+  border: 1px solid hsla(0, 0%, 0%, 0.2);
+  padding: 0.5rem;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 1rem;
+}
+
+@media (min-width: 1025px) {
+  li {
+    width: 25%;
+    height: 500px;
+  }
+
+  li img {
+    height: 70%;
+  }
+  .employee-image {
+    width: 40%;
+  }
 }
