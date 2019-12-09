@@ -155,6 +155,10 @@ form button {
   li img {
     height: 70%;
   }
+
+  ul {
+    justify-content: center;
+  }
   .employee-image {
     width: 40%;
   }
