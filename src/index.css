@@ -160,6 +160,7 @@ form button {
     justify-content: center;
   }
   .employee-image {
-    width: 40%;
+    height: 250px;
+    width: 250px;
   }
 }
